@@ -32,6 +32,7 @@ function Chat() {
 
   return (
     <ChatContainer>
+      {roomDetails && roomMessages}
       <>
         <Header>
           <HeaderLeft>
@@ -70,7 +71,6 @@ function Chat() {
           channelName={roomDetails?.data().name}
           channelId={roomId}
         />
-
       </>
     </ChatContainer>  
   )
