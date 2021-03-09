@@ -18,7 +18,7 @@ import { auth, db } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Sidebar() {
-  const [channels, loading, error] = useCollection(db.collection('rooms')); 
+  const [channels] = useCollection(db.collection('rooms')); 
   const [user] = useAuthState(auth);
 
   return (
@@ -28,7 +28,7 @@ function Sidebar() {
           <h2>CHOLUKOV'S FAM</h2>
           <h3>
             <FiberManualRecordIcon /> 
-            Gozel Cholukova
+            {user.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />
@@ -54,7 +54,6 @@ function Sidebar() {
           title={doc.data().name} 
         />
       ))}
-
     </SidebarContainer>
   );
 }
