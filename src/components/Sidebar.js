@@ -107,7 +107,7 @@ const SidebarInfo = styled.div`
 
   > h3 > .MuiSvgIcon-root {
     font-size: 14px;
-    margin-top: 1px;
+    margin-top: 7px;
     margin-right: 2px;
     color: green;
   }

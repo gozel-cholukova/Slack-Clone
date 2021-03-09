@@ -1,5 +1,5 @@
 import styled  from "styled-components";
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from "@material-ui/core";
 import { auth, db } from '../firebase';
 import firebase from 'firebase';
@@ -16,14 +16,14 @@ function ChatInput({channelName, channelId, chatRef}) {
       return false;
     }
 
-    db.collection('rooms').doc(channelId).collection('messages').add({
+    db.collection("rooms").doc(channelId).collection("messages").add({
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       user: user.displayName,
       userImage: user.photoURL,
     });  
 
-    chatRef?.current?.scrollIntoView({
+    chatRef.current.scrollIntoView({
       behavior: "smooth",
     });
 
@@ -43,7 +43,7 @@ function ChatInput({channelName, channelId, chatRef}) {
         </Button>
       </form>
     </ChatInputContainer>
-  )
+  );
 }
 
 export default ChatInput;
